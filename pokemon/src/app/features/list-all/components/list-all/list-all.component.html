@@ -1,0 +1,28 @@
+<ng-container *transloco="let t; read: 'list_all'">
+  <div class="container banner">
+    <div class="d-flex justify-content-center">
+      <img
+        src="assets/img/group.png"
+        [attr.alt]="t('pokemons_group')"
+        [title]="t('happy')"
+      />
+    </div>
+  </div>
+  <main class="container">
+    <app-pokemon-items-list
+      *ngIf="pokemons$ | async as pokemons"
+      [isConnected]="(isConnected$ | async) ?? false"
+      [pokemons]="pokemons"
+    ></app-pokemon-items-list>
+    <div class="row justify-content-end mr-1">
+      <mat-paginator
+        (page)="setPagination($event)"
+        [attr.aria-label]="t('page_selection')"
+        [length]="count$ | async"
+        [pageSizeOptions]="[20, 100]"
+        [pageSize]="20"
+      >
+      </mat-paginator>
+    </div>
+  </main>
+</ng-container>

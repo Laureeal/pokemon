@@ -1,0 +1,92 @@
+<ng-container *transloco="let t; read: 'pokemon_buttons'">
+  <div class="d-flex flex-wrap justify-content-end">
+    <button
+      (click)="addToMyList()"
+      [class.mx-2]="!canDeleteCount"
+      class="button-discreet p-2 my-2 d-flex"
+      type="button"
+    >
+      <mat-icon
+        [attr.aria-label]="t('add_item')"
+        [title]="t('add_item')"
+        aria-hidden="false"
+        color="primary"
+        >add
+      </mat-icon>
+    </button>
+    <ng-container *ngIf="canDeleteCount && pokemon.count">
+      <button
+        (click)="removeCountFromMyList()"
+        class="button-discreet p-2 my-2 d-flex"
+        type="button"
+      >
+        <mat-icon
+          [attr.aria-label]="t('remove_item')"
+          [title]="t('remove_item')"
+          aria-hidden="false"
+          color="primary"
+          >remove
+        </mat-icon>
+      </button>
+      <button
+        (click)="deleteFromMyList()"
+        class="button-discreet p-2 my-2 d-flex"
+        type="button"
+      >
+        <mat-icon
+          [attr.aria-label]="t('delete_item')"
+          [title]="t('delete_item')"
+          aria-hidden="false"
+          color="primary"
+          >close
+        </mat-icon>
+      </button>
+    </ng-container>
+    <button
+      (click)="addToWishList()"
+      *ngIf="!pokemon.wished; else wished"
+      [class.ml-2]="!canDeleteCount"
+      class="button-discreet p-2 my-2 mr-0 d-flex"
+      type="button"
+    >
+      <mat-icon
+        [attr.aria-label]="t('add_wish_list')"
+        [title]="t('add_wish_list')"
+        aria-hidden="false"
+        color="primary"
+        >star
+      </mat-icon>
+    </button>
+  </div>
+
+  <ng-template #wished>
+    <span
+      *ngIf="!canDeleteWish; else deleteWish"
+      [class.ml-2]="!canDeleteCount"
+      class="static-wished p-2 my-2 mr-0 d-flex"
+    >
+      <mat-icon
+        [attr.aria-label]="t('already_wished')"
+        [title]="t('already_wished')"
+        aria-hidden="false"
+        color="primary"
+        >star</mat-icon
+      >
+    </span>
+  </ng-template>
+  <ng-template #deleteWish>
+    <button
+      (click)="deleteFromWishList()"
+      [class.ml-2]="!canDeleteCount"
+      class="button-discreet wished p-2 my-2 mr-0 d-flex"
+    >
+      <mat-icon
+        [attr.aria-label]="t('unwish')"
+        [title]="t('unwish')"
+        aria-hidden="false"
+        color="primary"
+        >star
+      </mat-icon>
+    </button>
+  </ng-template>
+</ng-container>

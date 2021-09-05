@@ -1,0 +1,27 @@
+<ng-container *transloco="let t; read: 'header'">
+  <header class="fixed-top d-flex justify-content-between p-3">
+    <div class="empty"></div>
+    <a
+      [attr.aria-label]="t('home')"
+      routerLink="/"
+      class="d-flex justify-content-center"
+      ><img [attr.alt]="t('pokemon')" class="logo" src="assets/img/logo.png"
+    /></a>
+    <app-navigation
+      *ngIf="user$ | async as user; else login"
+      [user]="user"
+    ></app-navigation>
+  </header>
+
+  <ng-template #login>
+    <button
+      (click)="openLoginDialog()"
+      [attr.aria-label]="t('login')"
+      [title]="t('login')"
+      class="login-button position-relative"
+    >
+      <img [attr.alt]="t('pokeball')" src="assets/img/pokeball.png" />
+      <mat-icon class="icon-over-button">login</mat-icon>
+    </button>
+  </ng-template>
+</ng-container>

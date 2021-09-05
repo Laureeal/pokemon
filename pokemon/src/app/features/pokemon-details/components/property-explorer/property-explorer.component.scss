@@ -1,0 +1,28 @@
+@import "main";
+
+ul {
+  list-style: none;
+}
+
+section {
+  min-width: to-rem(500px);
+  max-width: 100vw;
+  max-height: 90vh;
+  overflow-x: auto;
+}
+
+.url {
+  color: $app-color-poke-light-blue;
+
+  &:hover {
+    color: $app-color-poke-dark-blue;
+  }
+
+  &.is-seen {
+    color: $app-color-poke-dark-yellow;
+
+    &:hover {
+      color: $app-color-poke-yellow;
+    }
+  }
+}

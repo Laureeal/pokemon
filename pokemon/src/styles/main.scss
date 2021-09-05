@@ -1,0 +1,34 @@
+@import "abstracts/variables";
+@import "abstracts/functions";
+
+.is-capitalized {
+  text-transform: capitalize;
+}
+
+.button-discreet {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.fix-alignment::after {
+  content: "";
+  flex: auto;
+}
+
+.link-icon {
+  color: $app-color-poke-light-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $app-color-poke-dark-blue;
+  }
+
+  &:active,
+  &:visited {
+    color: $app-color-poke-yellow;
+
+    &:hover {
+      color: $app-color-poke-dark-yellow;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<form *transloco="let t; read: 'login'">
+  <div class="d-flex flex-column">
+    <label for="username">{{ t("username") }}</label>
+    <input
+      id="username"
+      [class.is-error]="usernameControl.errors"
+      [formControl]="usernameControl"
+      type="text"
+    />
+  </div>
+  <div class="d-flex justify-content-end">
+    <button
+      (click)="submitUsername()"
+      [disabled]="usernameControl.errors"
+      class="button mt-3"
+      [title]="usernameControl.errors ? t('too_short') : t('validate')"
+    >
+      {{ t("lets_go") }}
+    </button>
+  </div>
+</form>

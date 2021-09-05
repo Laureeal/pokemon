@@ -1,0 +1,14 @@
+<main class="container" *transloco="let t; read: 'wish_list'">
+  <h1 class="ml-4">{{ t("title") }}</h1>
+  <ng-container *ngIf="pokemons$ | async as pokemons">
+    <app-pokemon-items-list
+      *ngIf="pokemons.length; else noItem"
+      [canDeleteWish]="true"
+      [isConnected]="true"
+      [pokemons]="pokemons"
+    ></app-pokemon-items-list>
+    <ng-template #noItem>
+      <p class="ml-4">{{ t("no_item") }}</p>
+    </ng-template>
+  </ng-container>
+</main>

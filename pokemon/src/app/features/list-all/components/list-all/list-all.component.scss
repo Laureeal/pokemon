@@ -1,0 +1,9 @@
+@import "main";
+
+.banner {
+  height: to-rem(500px);
+
+  img {
+    max-height: 50vh;
+  }
+}

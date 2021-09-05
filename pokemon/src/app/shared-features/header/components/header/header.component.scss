@@ -1,0 +1,46 @@
+@import "src/styles/main";
+
+header {
+  width: 100%;
+  height: to-rem(120px);
+  top: 0;
+  left: 0;
+  background-color: $app-color-poke-dark-blue;
+  border-bottom: 4px solid $app-color-poke-light-blue;
+  color: $app-color-poke-yellow;
+  z-index: 3;
+}
+
+a {
+  height: to-rem(120px);
+  .logo {
+    max-height: to-rem(120px);
+    margin-top: to-rem(-20px);
+  }
+}
+
+.login-button {
+  width: to-rem(80px);
+  height: to-rem(80px);
+  @extend .button-discreet;
+
+  img {
+    width: to-rem(80px);
+    height: to-rem(80px);
+    border-radius: 50%;
+  }
+}
+
+.empty {
+  width: to-rem(80px);
+  height: to-rem(80px);
+  display: block;
+}
+
+.icon-over-button {
+  font-size: to-rem(50px);
+  position: absolute;
+  top: to-rem(18px);
+  left: to-rem(18px);
+  color: $app-color-poke-yellow;
+}

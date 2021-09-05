@@ -1,0 +1,94 @@
+<ng-container *transloco="let t; read: 'pokemon_details'">
+  <ng-container *ngIf="seenPropertiesUrl$ | async as seenUrls">
+    <main *ngIf="pokemon$ | async as pokemon" class="container">
+      <div class="d-flex justify-content-between">
+        <h1 class="is-capitalized ml-3">{{ pokemon.name }}</h1>
+        <ng-container *ngIf="isConnected$ | async">
+          <div
+            *ngIf="appPokemonItem$ | async as appPokemonItem"
+            class="d-flex justify-content-end align-items-center"
+          >
+            <span *ngIf="appPokemonItem.count" class="p-2 app-blue">{{
+              appPokemonItem.count
+            }}</span>
+            <app-pokemon-buttons
+              [canDeleteCount]="true"
+              [canDeleteWish]="true"
+              [pokemon]="appPokemonItem"
+            ></app-pokemon-buttons>
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-12 card my-2 py-2">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 px-3">
+          <h3 class="m-0">
+            {{ t("base_experience") }} : {{ pokemon.base_experience }}
+          </h3>
+          <h3 class="m-0">{{ t("height") }} : {{ pokemon.height }}</h3>
+          <h3 class="m-0">{{ t("weight") }} : {{ pokemon.weight }}</h3>
+        </div>
+      </div>
+      <div class="col-12 card my-2 py-2">
+        <h2 class="ml-3">{{ t("ability") }}</h2>
+        <ng-container
+          *ngTemplateOutlet="
+            propsTemplate;
+            context: { props: pokemon.abilities, key: 'ability' }
+          "
+        ></ng-container>
+      </div>
+      <div class="col-12 card my-2 py-2">
+        <h2 class="ml-3">{{ t("stat") }}</h2>
+        <ng-container
+          *ngTemplateOutlet="
+            propsTemplate;
+            context: { props: pokemon.stats, key: 'stat' }
+          "
+        ></ng-container>
+      </div>
+      <div class="col-12 card my-2 py-2">
+        <h2 class="ml-3">{{ t("move") }}</h2>
+        <ng-container
+          *ngTemplateOutlet="
+            propsTemplate;
+            context: { props: pokemon.moves, key: 'move' }
+          "
+        ></ng-container>
+      </div>
+    </main>
+
+    <ng-template #propsTemplate let-key="key" let-props="props">
+      <div
+        *ngIf="props?.length; else noItem"
+        class="row justify-content-between fix-alignment"
+      >
+        <div
+          *ngFor="let prop of props | orderByNameSubKey: key"
+          class="col-12 col-md-6 col-lg-4 col-xl-3 px-3"
+        >
+          <div class="row justify-content-between align-items-center mx-3">
+            <h3 class="is-capitalized m-0">{{ prop[key].name }}</h3>
+            <button
+              (click)="propertyClick(prop[key].url)"
+              [appIsSeenUrl]="prop[key].url"
+              [seenUrls]="seenUrls"
+              class="button-discreet p-2 d-flex modal-icon"
+              type="button"
+            >
+              <mat-icon
+                [attr.aria-label]="'general.more_info' | transloco"
+                aria-hidden="false"
+                [title]="t('open_property_explorer')"
+                >lightbulb
+              </mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #noItem>
+      <p class="ml-3">{{ t("no_item") }}</p>
+    </ng-template>
+  </ng-container>
+</ng-container>

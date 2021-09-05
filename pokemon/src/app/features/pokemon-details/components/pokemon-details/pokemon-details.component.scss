@@ -1,0 +1,32 @@
+@import "main";
+
+.card {
+  border: $app-border;
+  border-bottom: 4px solid $app-color-poke-yellow;
+  border-radius: 8px;
+}
+
+.modal-icon {
+  color: $app-color-poke-light-blue;
+
+  &:hover {
+    color: $app-color-poke-dark-blue;
+  }
+
+  &.is-seen {
+    color: $app-color-poke-yellow;
+
+    &:hover {
+      color: $app-color-poke-dark-yellow;
+    }
+  }
+}
+
+.app-blue {
+  color: $app-color-poke-light-blue;
+}
+
+h1,
+h2 {
+  color: $app-color-poke-dark-blue;
+}

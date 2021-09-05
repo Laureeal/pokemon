@@ -1,0 +1,31 @@
+<div class="pokemon-item m-3 p-3">
+  <div class="d-flex justify-content-between align-items-center flex-wrap">
+    {{ pokemon.name }}
+    <a
+      [attr.title]="'general.visit_page' | transloco"
+      [routerLink]="'/pokemon/' + pokemon.name"
+      class="link-icon p-2 d-flex"
+    >
+      <mat-icon
+        [attr.aria-label]="'general.more_info' | transloco"
+        aria-hidden="false"
+        >visibility
+      </mat-icon>
+    </a>
+  </div>
+  <div
+    *ngIf="isConnected"
+    class="d-flex justify-content-between align-items-center mt-3"
+  >
+    <span
+      ><ng-container *ngIf="pokemon.count">{{
+        pokemon.count
+      }}</ng-container></span
+    >
+    <app-pokemon-buttons
+      [canDeleteCount]="canDeleteCount"
+      [canDeleteWish]="canDeleteWish"
+      [pokemon]="pokemon"
+    ></app-pokemon-buttons>
+  </div>
+</div>

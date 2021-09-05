@@ -1,0 +1,29 @@
+@import "main";
+
+.is-error {
+  color: red;
+}
+
+input[type="text"] {
+  padding: to-rem(8px);
+}
+
+.button {
+  background-color: $app-color-poke-dark-blue;
+  color: $app-color-poke-yellow;
+  border: none;
+  padding: to-rem(8px) to-rem(16px);
+
+  &:hover:not(:disabled) {
+    background-color: $app-color-poke-light-blue;
+  }
+
+  &:disabled {
+    background-color: $app-color-poke-light-blue;
+    color: $app-color-poke-dark-yellow;
+  }
+}
+
+label {
+  color: $app-color-poke-light-blue;
+}

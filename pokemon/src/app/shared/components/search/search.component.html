@@ -1,0 +1,56 @@
+<form *transloco="let t; read: 'search'">
+  <ul *ngIf="pokemons$ | async as pokemons" class="col-12 my-0">
+    <li
+      *ngFor="let pokemon of pokemons"
+      class="d-flex px-3 justify-content-between align-items-center"
+    >
+      <a
+        (click)="closeSearch()"
+        [routerLink]="'/pokemon/' + pokemon.name"
+        class="is-capitalized"
+        >{{ pokemon.name }}</a
+      >
+      <app-pokemon-buttons
+        *ngIf="isConnected$ | async"
+        [pokemon]="pokemon"
+      ></app-pokemon-buttons>
+    </li>
+  </ul>
+  <div class="col-12 d-flex align-items-center">
+    <div class="w-100 my-2">
+      <input
+        [class.is-error]="searchControl.errors?.minlength"
+        [formControl]="searchControl"
+        type="search"
+        [attr.aria-label]="t('search')"
+      />
+      <ng-container *ngIf="searchControl.errors?.minlength">
+        <p class="is-error mb-0">{{ t("too_short") }}</p>
+      </ng-container>
+      <ng-container *ngIf="searchControl.errors?.pattern">
+        <p class="is-error mb-0">{{ t("only_letters") }}</p>
+        <small class="is-error">{{ t("really_only_letters") }}</small>
+      </ng-container>
+    </div>
+    <span class="mx-1">
+      <mat-icon
+        [attr.aria-label]="t('info')"
+        [title]="t('info')"
+        aria-hidden="false"
+        >help_outline
+      </mat-icon>
+    </span>
+    <ng-container *ngIf="pokemons$ | async as pokemons">
+      <span>
+        <mat-icon
+          *ngIf="searchControl.valid && !pokemons.length"
+          [attr.aria-label]="t('no_data')"
+          [title]="t('no_data')"
+          aria-hidden="false"
+          color="warn"
+          >block
+        </mat-icon>
+      </span>
+    </ng-container>
+  </div>
+</form>

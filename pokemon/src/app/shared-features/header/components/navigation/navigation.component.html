@@ -1,0 +1,29 @@
+<ng-container *transloco="let t; read: 'navigation'">
+  <button
+    [matMenuTriggerFor]="menu"
+    [title]="user.username"
+    class="menu-button position-relative"
+  >
+    <img [attr.alt]="t('sacha')" src="assets/img/sacha.jpeg" />
+    <mat-icon class="icon-over-button" [title]="t('menu')">menu</mat-icon>
+  </button>
+
+  <mat-menu #menu [hasBackdrop]="false">
+    <ul class="p-0">
+      <li class="p-3">
+        <a routerLink="/">{{ t("home") }}</a>
+      </li>
+      <li class="p-3">
+        <a routerLink="/my-list">{{ t("my-list") }}</a>
+      </li>
+      <li class="p-3">
+        <a routerLink="/my-wish-list">{{ t("my-wish-list") }}</a>
+      </li>
+      <li class="p-3">
+        <button (click)="logOut()" class="button-discreet p-0" type="button">
+          {{ t("logout") }}
+        </button>
+      </li>
+    </ul>
+  </mat-menu>
+</ng-container>

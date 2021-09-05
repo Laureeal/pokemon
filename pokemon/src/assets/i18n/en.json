@@ -1,0 +1,75 @@
+{
+  "general": {
+    "more_info": "More informations",
+    "seen_item": "You've seen that item recently",
+    "visit_page": "Visit the page"
+  },
+  "header": {
+    "home": "Home",
+    "login": "Login",
+    "pokeball": "Pokeball",
+    "pokemon": "Pokemon"
+  },
+  "list_all": {
+    "happy": "We're sooooo happy to see you !",
+    "page_selection": "Select page",
+    "pokemons_group": "Group of excited Pokemons"
+  },
+  "login": {
+    "got_it": "Got it !",
+    "lets_go": "Let's go!",
+    "new_user": "Welcome {{ username }} ! You don't have anything in your list yet, you'll need to add some Pokemons you already have and those you wish you had. Afterwards, you can check if you didn't forget anything in your lists behind your awesome face in the top right.",
+    "too_short": "Your username must be at least 3 characters",
+    "validate": "Validate",
+    "username": "Username"
+  },
+  "my_list": {
+    "no_item": "You don't have anything in your list yet. You can search for a Pokemon to add  at the bottom of the page.",
+    "title": "My list"
+  },
+  "navigation": {
+    "home": "Home",
+    "logout": "Log out",
+    "menu": "Menu",
+    "my-list": "My list",
+    "my-wish-list": "My wish list",
+    "sacha": "Sacha"
+  },
+  "not_found": {
+    "annoying": "Well, this is annoying",
+    "error_404": "404",
+    "go_home": "Go home instead ?",
+    "message": "We couldn't find what you're looking for",
+    "sad_pikachu": "Sad Pikachu"
+  },
+  "pokemon_details": {
+    "ability": "Ability",
+    "base_experience": "Base experience",
+    "height": "Height",
+    "move": "Move",
+    "no_item": "No item for this category",
+    "open_property_explorer": "Open in property explorer",
+    "stat": "Stat",
+    "weight": "Weight"
+  },
+  "pokemon_buttons": {
+    "add_item": "Add Pokemon to my list",
+    "add_wish_list": "Add Pokemon to my wish list",
+    "already_wished": "Already in my wish list",
+    "delete_item": "Delete Pokemon from my list",
+    "remove_item": "Remove 1 Pokemon from my list",
+    "unwish": "Delete Pokemon from my wish list"
+  },
+  "search": {
+    "info": "First, we'll look if you have any stored or recently seen Pokemons that match your search in their name. If not, we'll call the server to know if it exists any Pokemon with the exact name you filled",
+    "no_data": "No data",
+    "only_letters": "Only accepts regular letters",
+    "really_only_letters": "(no number, no space, no special characters, no accent, ... Stop being creative)",
+    "search": "Search",
+    "too_short": "Minimal length is 3, you're almost there"
+  },
+  "wish_list": {
+    "no_item": "You don't have anything in your wish list yet. You can search for a Pokemon to add at the bottom of the page.",
+    "title": "My wish list"
+  }
+}

@@ -1,0 +1,140 @@
+<section *ngIf="property$ | async as property">
+  <div class="d-flex align-items-center mb-2">
+    <button
+      (click)="goBack()"
+      *ngIf="isNotLastProperty$ | async"
+      class="button-discreet p-2 d-flex modal-icon"
+      type="button"
+    >
+      <mat-icon
+        [attr.aria-label]="'general.more_info' | transloco"
+        aria-hidden="false"
+        >arrow_back
+      </mat-icon>
+    </button>
+    <h2 class="is-capitalized mb-0" id="title">
+      {{ property.name ?? property.url ?? property.id }}
+    </h2>
+  </div>
+  <ng-container *ngTemplateOutlet="object, context: {property}"></ng-container>
+</section>
+
+<ng-template #object let-key="key" let-property="property">
+  <ng-container *ngIf="property">
+    <div class="d-flex align-items-center ml-4 my-2">
+      <span class="is-capitalized">{{ key | cleanKey }}</span>
+      <ng-container *ngIf="property.url; else noUrl">
+        <button
+          (click)="setProperty(property)"
+          *ngIf="property.name; else noName"
+          [appStaticIsSeenUrl]="property.url"
+          class="button-discreet is-capitalized url"
+        >
+          {{ property.name }}
+        </button>
+        <ng-template #noName>
+          <button
+            (click)="setProperty(property)"
+            *ngIf="!property.name"
+            [appStaticIsSeenUrl]="property.url"
+            class="button-discreet is-capitalized url"
+          >
+            {{ property.url }}
+          </button>
+        </ng-template>
+        <a
+          (click)="closeDialog()"
+          *ngIf="property.url.includes(pokemonUrlSegment)"
+          [appStaticIsSeenUrl]="property.url"
+          [attr.title]="'general.visit_page' | transloco"
+          [routerLink]="'/pokemon/' + property.name"
+          class="link-icon p-2 d-flex"
+        >
+          <mat-icon
+            [attr.aria-label]="'general.more_info' | transloco"
+            aria-hidden="false"
+            >visibility
+          </mat-icon>
+        </a>
+      </ng-container>
+      <ng-template #noUrl>
+        <span *ngIf="property.name" class="is-capitalized">{{
+          property.name
+        }}</span>
+      </ng-template>
+    </div>
+    <div *ngFor="let entry of property | toEntries" class="ml-4 my-1">
+      <ng-container *ngIf="entry[0] !== 'name' && entry[0] !== 'url'">
+        <ng-container
+          *ngTemplateOutlet="
+            handleType;
+            context: { el: entry[1], key: entry[0] }
+          "
+        ></ng-container>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #array let-key="key" let-properties="properties">
+  <span class="is-capitalized">{{ key | cleanKey }}</span>
+  <ul class="p-0 mb-2">
+    <li *ngFor="let prop of properties | orderByName">
+      <ng-container
+        *ngTemplateOutlet="handleType; context: { el: prop }"
+      ></ng-container>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #string let-key="key" let-property="property">
+  <div>
+    <ng-container *ngIf="key; else noKey">
+      <span class="is-capitalized">{{ key | cleanKey }}</span> : {{ property }}
+    </ng-container>
+    <ng-template #noKey>
+      <span class="ml-4">{{ property }}</span>
+    </ng-template>
+  </div>
+</ng-template>
+
+<ng-template #boolean let-key="key" let-property="property">
+  <div>
+    <span class="is-capitalized">{{ key | cleanKey }}</span> :
+    {{ property | json }}
+  </div>
+</ng-template>
+
+<ng-template #handleType let-el="el" let-key="key">
+  <ng-container *ngIf="el | getType as type">
+    <ng-container [ngSwitch]="type">
+      <ng-container *ngSwitchCase="PropertyType.OBJECT">
+        <ng-container
+          *ngTemplateOutlet="object, context: {property: el, key}"
+        ></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="PropertyType.ARRAY">
+        <ng-container *ngIf="el.length">
+          <ng-container
+            *ngTemplateOutlet="array, context: {properties: el, key}"
+          ></ng-container>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="PropertyType.STRING">
+        <ng-container
+          *ngTemplateOutlet="string, context: {property: el, key}"
+        ></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="PropertyType.NUMBER">
+        <ng-container
+          *ngTemplateOutlet="string, context: {property: el, key}"
+        ></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="PropertyType.BOOLEAN">
+        <ng-container
+          *ngTemplateOutlet="boolean, context: {property: el, key}"
+        ></ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>

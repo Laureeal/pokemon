@@ -1,0 +1,52 @@
+@import "main";
+
+h1 {
+  font-size: to-rem(500px);
+  line-height: to-rem(500px);
+  text-align: center;
+  color: $app-color-poke-light-blue;
+}
+
+.pikachu {
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.error {
+  height: to-rem(700px);
+}
+
+.text {
+  p {
+    font-size: to-rem(24px);
+  }
+
+  z-index: 2;
+}
+
+a {
+  color: $app-color-poke-light-blue;
+  text-decoration: none;
+
+  &:hover {
+    color: $app-color-poke-dark-blue;
+  }
+}
+
+@media (max-width: $app-max-width-medium-screen) {
+  h1 {
+    font-size: to-rem(300px);
+    line-height: to-rem(300px);
+    text-align: center;
+    color: $app-color-poke-light-blue;
+  }
+
+  img {
+    max-width: 50vw;
+  }
+
+  .error {
+    height: to-rem(400px);
+  }
+}

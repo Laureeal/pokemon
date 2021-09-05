@@ -1,0 +1,41 @@
+@import "src/styles/main";
+
+form {
+  width: to-rem(500px);
+  max-width: 100vw;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid $app-color-poke-yellow;
+  border-radius: 4px;
+}
+
+ul {
+  list-style: none;
+  li {
+    min-height: to-rem(56px);
+    a {
+      color: $app-color-poke-light-blue;
+      &:hover,
+      &:active {
+        color: $app-color-poke-dark-blue;
+      }
+    }
+  }
+}
+
+input[type="search"] {
+  width: 100%;
+  padding: to-rem(8px);
+  border: 2px solid $app-color-poke-yellow;
+
+  &:active,
+  &:focus {
+    border-color: $app-color-poke-dark-yellow;
+  }
+}
+
+.is-error {
+  color: red;
+}

@@ -1,0 +1,17 @@
+<main *transloco="let t; read: 'not_found'" class="container">
+  <div class="col-12 col-md-6 m-auto text-center position-relative text">
+    <p>{{ t("annoying") }}</p>
+    <p>{{ t("message") }}</p>
+    <p>
+      <a routerLink="/">{{ t("go_home") }}</a>
+    </p>
+  </div>
+  <div class="position-relative error">
+    <h1>{{ t("error_404") }}</h1>
+    <img
+      [attr.alt]="t('sad_pikachu')"
+      class="position-absolute pikachu"
+      src="assets/img/sad-pikachu.png"
+    />
+  </div>
+</main>

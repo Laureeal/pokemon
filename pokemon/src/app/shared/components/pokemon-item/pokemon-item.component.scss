@@ -1,0 +1,12 @@
+@import "main";
+
+.pokemon-item {
+  border: $app-border;
+  @extend .is-capitalized;
+  border-bottom: 4px solid $app-color-poke-light-blue;
+  border-radius: 8px;
+}
+
+.border-yellow {
+  border-top: 1px solid $app-color-poke-yellow;
+}

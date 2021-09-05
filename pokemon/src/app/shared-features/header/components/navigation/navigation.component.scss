@@ -1,0 +1,44 @@
+@import "main";
+
+ul {
+  list-style: none;
+}
+
+li {
+  a,
+  button {
+    color: $app-color-poke-dark-blue;
+
+    &:hover {
+      color: $app-color-poke-light-blue;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &:visited &:active {
+      color: $app-color-poke-dark-blue;
+    }
+  }
+}
+
+.menu-button {
+  width: to-rem(80px);
+  height: to-rem(80px);
+  @extend .button-discreet;
+
+  img {
+    width: to-rem(80px);
+    height: to-rem(80px);
+    border-radius: 50%;
+  }
+
+  .icon-over-button {
+    font-size: to-rem(60px);
+    position: absolute;
+    top: to-rem(12px);
+    left: to-rem(18px);
+    color: $app-color-poke-yellow;
+  }
+}

@@ -1,0 +1,25 @@
+@import "main";
+
+button {
+  mat-icon {
+    color: $app-color-poke-light-blue;
+  }
+
+  &:hover mat-icon {
+    color: $app-color-poke-dark-blue;
+  }
+
+  &.wished {
+    mat-icon {
+      color: $app-color-poke-yellow;
+    }
+
+    &:hover mat-icon {
+      color: $app-color-poke-dark-yellow;
+    }
+  }
+}
+
+.static-wished mat-icon {
+  color: $app-color-poke-yellow;
+}
