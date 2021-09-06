@@ -29,8 +29,9 @@ export class PokemonDetailsService {
       })
       .pipe(
         tap((pokemon) => {
-          if (pokemon)
+          if (pokemon) {
             this.pokemonsSuggestionsService.addOneToStore(pokemon, true);
+          }
         })
       );
   }

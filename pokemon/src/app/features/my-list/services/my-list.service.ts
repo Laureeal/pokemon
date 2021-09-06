@@ -12,12 +12,12 @@ export class MyListService {
     this.savedPokemonsService.myPokemons$,
     this.savedPokemonsService.wishPokemons$,
   ]).pipe(
-    map(([counts, wishes]) => {
-      return counts.map((c) => ({
+    map(([counts, wishes]) =>
+      counts.map((c) => ({
         ...c,
         wished: !!wishes.find((w) => w.name === c.name),
-      }));
-    })
+      }))
+    )
   );
 
   constructor(private savedPokemonsService: SavedPokemonsService) {}

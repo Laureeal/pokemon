@@ -1,5 +1,5 @@
 import { BaseItem } from '@app/core';
 
 export interface Property {
-  [key: string]: Property | Property[] | BaseItem | string | number;
+  [key: string]: BaseItem | Property | Property[] | number | string;
 }

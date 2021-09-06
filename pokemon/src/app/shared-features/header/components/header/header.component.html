@@ -3,9 +3,14 @@
     <div class="empty"></div>
     <a
       [attr.aria-label]="t('home')"
+      [title]="t('home')"
       routerLink="/"
       class="d-flex justify-content-center"
-      ><img [attr.alt]="t('pokemon')" class="logo" src="assets/img/logo.png"
+      ><img
+        [attr.alt]="t('pokemon')"
+        [title]="t('home')"
+        class="logo"
+        src="assets/img/logo.png"
     /></a>
     <app-navigation
       *ngIf="user$ | async as user; else login"

@@ -41,8 +41,9 @@ export class SearchComponent implements OnInit, OnDestroy {
         debounceTime(200),
         tap((value) => {
           if (this.searchControl.valid) this.searchService.setSearch(value);
-          if (!value || value.length === 0)
+          if (!value || value.length === 0) {
             this.searchService.setSearch(undefined);
+          }
         })
       )
       .subscribe();

@@ -1,5 +1,6 @@
 {
   "general": {
+    "close": "Close",
     "more_info": "More informations",
     "seen_item": "You've seen that item recently",
     "visit_page": "Visit the page"
@@ -24,15 +25,15 @@
     "username": "Username"
   },
   "my_list": {
-    "no_item": "You don't have anything in your list yet. You can search for a Pokemon to add  at the bottom of the page.",
-    "title": "My list"
+    "no_item": "You don't have anything in your caught Pokemons list yet. You can search for a Pokemon to add  at the bottom of the page.",
+    "title": "Pokemon I've caught"
   },
   "navigation": {
     "home": "Home",
     "logout": "Log out",
     "menu": "Menu",
-    "my-list": "My list",
-    "my-wish-list": "My wish list",
+    "my-list": "Pokemon I've caught",
+    "my-wish-list": "Pokemon Wishlist",
     "sacha": "Sacha"
   },
   "not_found": {
@@ -53,12 +54,15 @@
     "weight": "Weight"
   },
   "pokemon_buttons": {
-    "add_item": "Add Pokemon to my list",
-    "add_wish_list": "Add Pokemon to my wish list",
-    "already_wished": "Already in my wish list",
-    "delete_item": "Delete Pokemon from my list",
-    "remove_item": "Remove 1 Pokemon from my list",
-    "unwish": "Delete Pokemon from my wish list"
+    "add_item": "Add Pokemon to my caught list",
+    "add_wish_list": "Add Pokemon to my wishlist",
+    "already_wished": "Already in my wishlist",
+    "delete_item": "Delete Pokemon from my caught list",
+    "remove_item": "Remove 1 Pokemon from my caught list",
+    "unwish": "Delete Pokemon from my wishlist"
+  },
+  "property_explorer": {
+    "go_back": "Go back to previous property"
   },
   "search": {
     "info": "First, we'll look if you have any stored or recently seen Pokemons that match your search in their name. If not, we'll call the server to know if it exists any Pokemon with the exact name you filled",
@@ -69,7 +73,7 @@
     "too_short": "Minimal length is 3, you're almost there"
   },
   "wish_list": {
-    "no_item": "You don't have anything in your wish list yet. You can search for a Pokemon to add at the bottom of the page.",
-    "title": "My wish list"
+    "no_item": "You don't have anything in your wishlist yet. You can search for a Pokemon to add at the bottom of the page.",
+    "title": "Pokemon Wishlist"
   }
 }

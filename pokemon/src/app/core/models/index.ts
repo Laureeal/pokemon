@@ -7,4 +7,5 @@ export * from './base-item';
 export * from './game-indice';
 export * from './move';
 export * from './pokemon';
+export * from './sprite';
 export * from './stat';

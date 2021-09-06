@@ -38,12 +38,12 @@ export class SearchService {
     this._pokemons$,
     this.savedPokemonService.wishPokemons$,
   ]).pipe(
-    map(([pokemons, wishes]) => {
-      return pokemons.map((p) => ({
+    map(([pokemons, wishes]) =>
+      pokemons.map((p) => ({
         ...p,
         wished: !!wishes.find((w) => w.name === p.name),
-      }));
-    })
+      }))
+    )
   );
 
   constructor(
@@ -62,9 +62,7 @@ export class SearchService {
         if (pokemon) return [pokemon];
         return [];
       }),
-      catchError(() => {
-        return of([]);
-      })
+      catchError(() => of([]))
     );
   }
 

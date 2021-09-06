@@ -62,7 +62,7 @@ export class UserService {
       this.wishListService.wishPokemons$,
     ]).pipe(
       first(),
-      tap(([user, myList, wishList]) => {
+      map(([user, myList, wishList]) => {
         this.localStorageService.setUser({
           username: user?.username ?? '',
           personalList: myList ?? [],
@@ -72,7 +72,7 @@ export class UserService {
         this.wishListService.setWishList([]);
         this._user$.next(undefined);
       }),
-      mapTo(void 0)
+      mapTo(undefined)
     );
   }
 

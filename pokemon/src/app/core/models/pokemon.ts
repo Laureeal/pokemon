@@ -2,6 +2,7 @@ import { Ability } from './ability';
 import { BaseItem } from './base-item';
 import { GameIndice } from './game-indice';
 import { Move } from './move';
+import { Sprite } from './sprite';
 import { Type } from './type';
 
 export interface Pokemon {
@@ -19,6 +20,7 @@ export interface Pokemon {
   location_area_encounters: string;
   moves: Move[];
   species: BaseItem;
+  sprites: Sprite;
   stats: BaseItem;
   types: Type[];
   hasFullInfo?: boolean;

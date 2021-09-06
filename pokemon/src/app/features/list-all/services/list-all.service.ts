@@ -34,13 +34,13 @@ export class ListAllService {
     this.savedPokemonService.myPokemons$,
     this.savedPokemonService.wishPokemons$,
   ]).pipe(
-    map(([pokemons, counts, wishes]) => {
-      return pokemons.map((p) => ({
+    map(([pokemons, counts, wishes]) =>
+      pokemons.map((p) => ({
         ...p,
         count: counts.find((c) => c.name === p.name)?.count ?? 0,
         wished: !!wishes.find((w) => w.name === p.name),
-      }));
-    })
+      }))
+    )
   );
 
   count$: Observable<number> = this._response$.pipe(

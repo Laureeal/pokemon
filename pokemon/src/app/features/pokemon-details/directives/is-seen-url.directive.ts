@@ -16,8 +16,14 @@ export class IsSeenUrlDirective implements OnChanges {
   ngOnChanges(): void {
     if (this.seenUrls.includes(this.appIsSeenUrl)) {
       this.elementRef.nativeElement.classList.add('is-seen');
-      this.elementRef.nativeElement.title =
-        this.transloco.translate('general.seen_item');
+      const icon =
+        this.elementRef.nativeElement.getElementsByTagName('mat-icon')?.[0];
+      if (icon) {
+        icon.title = this.transloco.translate('general.seen_item');
+      } else {
+        this.elementRef.nativeElement.title =
+          this.transloco.translate('general.seen_item');
+      }
     }
   }
 }

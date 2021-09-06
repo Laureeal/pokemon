@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { shareReplay, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { shareReplay, switchMap, tap } from 'rxjs/operators';
 
 import {
   AppPokemonItem,
@@ -29,6 +29,7 @@ import { PropertyExplorerComponent } from '../property-explorer/property-explore
 export class PokemonDetailsComponent implements OnInit, OnDestroy {
   pokemon$: Observable<Pokemon> = this.route.params.pipe(
     switchMap(({ name }) => this.pokemonDetailsService.getPokemon(name)),
+    tap((pokemon) => this.setImgUrl(pokemon.sprites.front_default)),
     shareReplay()
   );
   seenPropertiesUrl$: Observable<string[]> =
@@ -39,6 +40,7 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
       this.savedPokemonsService.getAppPokemonItem(pokemon.name)
     )
   );
+  imgUrl$: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   private subscriptions: Subscription = new Subscription();
 
@@ -77,5 +79,9 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
       .afterClosed()
       .subscribe(() => this.propertyExplorerService.resetSessionList());
     this.subscriptions.add(subscription);
+  }
+
+  setImgUrl(url: string): void {
+    if (url) this.imgUrl$.next(url);
   }
 }

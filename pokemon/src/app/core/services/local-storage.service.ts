@@ -11,7 +11,7 @@ export class LocalStorageService {
   private readonly _userPrefix: string = 'user-';
   private readonly _lastUser: string = 'last-user';
 
-  setUser(user: User) {
+  setUser(user: User): void {
     localStorage.setItem(
       `${this._userPrefix}${user.username}`,
       this.stringify(user)
@@ -19,8 +19,9 @@ export class LocalStorageService {
   }
 
   getUser(username: string, setLastUser: boolean = true): User | undefined {
-    if (username && setLastUser)
+    if (username && setLastUser) {
       localStorage.setItem(`${this._lastUser}`, username);
+    }
     const item = localStorage.getItem(`${this._userPrefix}${username}`);
     if (item) return this.parse(item) as User;
     return undefined;

@@ -10,8 +10,9 @@ export class OrderByNameSubKeyPipe implements PipeTransform {
   ): T[] {
     return (
       values.sort((a, b) => {
-        if (a[key]?.name && b[key]?.name)
+        if (a[key]?.name && b[key]?.name) {
           return a[key].name.localeCompare(b[key].name);
+        }
         return 0;
       }) ?? []
     );

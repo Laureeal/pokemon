@@ -5,27 +5,27 @@ import { IsConnectedGuard } from '@app/core';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
+    loadChildren: async () =>
       import('./features/list-all/list-all.module').then(
         (m) => m.ListAllModule
       ),
   },
   {
     path: 'pokemon',
-    loadChildren: () =>
+    loadChildren: async () =>
       import('./features/pokemon-details/pokemon-details.module').then(
         (m) => m.PokemonDetailsModule
       ),
   },
   {
     path: 'my-list',
-    loadChildren: () =>
+    loadChildren: async () =>
       import('./features/my-list/my-list.module').then((m) => m.MyListModule),
     canActivate: [IsConnectedGuard],
   },
   {
     path: 'my-wish-list',
-    loadChildren: () =>
+    loadChildren: async () =>
       import('./features/wish-list/wish-list.module').then(
         (m) => m.WishListModule
       ),
@@ -33,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: 'not-found',
-    loadChildren: () =>
+    loadChildren: async () =>
       import('./features/not-found/not-found.module').then(
         (m) => m.NotFoundModule
       ),

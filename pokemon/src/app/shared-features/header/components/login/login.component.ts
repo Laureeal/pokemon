@@ -33,13 +33,14 @@ export class LoginComponent {
       const isExistingUser = this.userService.loadOrCreateUser(
         this.usernameControl.value
       );
-      if (!isExistingUser)
+      if (!isExistingUser) {
         this.snackBar.open(
           this.transloco.translate('login.new_user', {
             username: this.usernameControl.value,
           }),
           this.transloco.translate('login.got_it')
         );
+      }
       this.dialogRef.close();
     }
   }

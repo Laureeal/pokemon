@@ -22,13 +22,11 @@ export class SavedPokemonsService {
 
   getAppPokemonItem(name: string): Observable<AppPokemonItem> {
     return combineLatest([this.myPokemons$, this.wishPokemons$]).pipe(
-      map(([counts, wishes]) => {
-        return {
-          name,
-          count: counts.find((c) => c.name === name)?.count ?? 0,
-          wished: !!wishes.find((w) => w.name === name),
-        };
-      })
+      map(([counts, wishes]) => ({
+        name,
+        count: counts.find((c) => c.name === name)?.count ?? 0,
+        wished: !!wishes.find((w) => w.name === name),
+      }))
     );
   }
 }

@@ -18,7 +18,7 @@ export class PropertyExplorerComponent {
     this.propertyExplorerService.property$;
   isNotLastProperty$: Observable<boolean> =
     this.propertyExplorerService.isNotLastProperty$;
-  PropertyType: typeof PropertyType = PropertyType;
+  propertyType: typeof PropertyType = PropertyType;
 
   readonly pokemonUrlSegment: string = '/pokemon/';
 

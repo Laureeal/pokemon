@@ -26,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@ngneat/transloco": "^2.22.0",
     "bootstrap": "^4.5.0",
+    "eslint-plugin-import": "^2.24.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "unicorn": "0.0.1",

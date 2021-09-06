@@ -32,11 +32,8 @@
         <small class="is-error">{{ t("really_only_letters") }}</small>
       </ng-container>
     </div>
-    <span class="mx-1">
-      <mat-icon
-        [attr.aria-label]="t('info')"
-        [title]="t('info')"
-        aria-hidden="false"
+    <span class="mx-1 icon-info" [title]="t('info')">
+      <mat-icon [attr.aria-label]="t('info')" aria-hidden="false"
         >help_outline
       </mat-icon>
     </span>

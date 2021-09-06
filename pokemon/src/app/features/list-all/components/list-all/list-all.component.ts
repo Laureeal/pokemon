@@ -28,7 +28,7 @@ export class ListAllComponent {
     private userService: UserService
   ) {}
 
-  setPagination(pagination: PaginationMaterial) {
+  setPagination(pagination: PaginationMaterial): void {
     this.listAllService.setPagination(pagination);
     setTimeout(() => window.scrollTo(0, 530));
   }
