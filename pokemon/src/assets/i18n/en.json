@@ -20,6 +20,7 @@
     "got_it": "Got it !",
     "lets_go": "Let's go!",
     "new_user": "Welcome {{ username }} ! You don't have anything in your list yet, you'll need to add some Pokemons you already have and those you wish you had. Afterwards, you can check if you didn't forget anything in your lists behind your awesome face in the top right.",
+    "placeholder": "Sacha",
     "too_short": "Your username must be at least 3 characters",
     "validate": "Validate",
     "username": "Username"
@@ -68,6 +69,7 @@
     "info": "First, we'll look if you have any stored or recently seen Pokemons that match your search in their name. If not, we'll call the server to know if it exists any Pokemon with the exact name you filled",
     "no_data": "No data",
     "only_letters": "Only accepts regular letters",
+    "placeholder": "Pikachu",
     "really_only_letters": "(no number, no space, no special characters, no accent, ... Stop being creative)",
     "search": "Search",
     "too_short": "Minimal length is 3, you're almost there"

@@ -6,6 +6,10 @@
 
 input[type="text"] {
   padding: to-rem(8px);
+
+  &::placeholder {
+    font-style: italic;
+  }
 }
 
 .button {

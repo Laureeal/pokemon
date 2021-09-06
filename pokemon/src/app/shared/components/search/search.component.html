@@ -21,6 +21,7 @@
       <input
         [class.is-error]="searchControl.errors?.minlength"
         [formControl]="searchControl"
+        [placeholder]="t('placeholder')"
         type="search"
         [attr.aria-label]="t('search')"
       />
